@@ -20,7 +20,7 @@ def try_d100(difficulty):
     """
     Returns 1 or 0 with a probability of difficulty
     """
-    if random.randint(1, 100) >= difficulty:
+    if get_d100() >= difficulty:
         return 1
     else:
         return 0

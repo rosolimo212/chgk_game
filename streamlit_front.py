@@ -2,17 +2,17 @@ import streamlit as st
 
 import chgk_game_back as cgb
 
-st.title("CHGK Game")
+st.title("The CHGK Game")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    if st.button("get_d20"):
+    if st.button("Roll d20"):
         result = cgb.get_d20()
         st.write(f"**Result:** {result}")
 
 with col2:
-    if st.button("get_d100"):
+    if st.button("Roll d100"):
         result = cgb.get_d100()
         st.write(f"**Result:** {result}")
 
@@ -24,6 +24,6 @@ with col3:
         value=50,
         key="difficulty",
     )
-    if st.button("Try to solve"):
+    if st.button("Try to solve with difficulty {difficulty}".format(difficulty=difficulty)):
         result = cgb.try_d100(difficulty)
         st.write(f"**Result:** {result}")
