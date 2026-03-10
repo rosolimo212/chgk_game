@@ -10,11 +10,13 @@ def get_d20():
     """
     return random.randint(1, 20)
 
+
 def get_d100():
     """
     Generate a random number between 1 and 100
     """
     return random.randint(1, 100)
+
 
 def try_d100(difficulty):
     """
@@ -26,3 +28,18 @@ def try_d100(difficulty):
         return 0
 
 
+
+# series in n tryes to get a border
+def make_qv(difficulty, n_try):
+    """
+    Make a series of n tries to get a border
+    """
+    res = 0
+    res_lst = []
+    for i in n_try:
+        tr_iter = get_d100()
+        res_lst.append(tr_iter)
+        if tr_iter >= difficulty:
+            res = 1
+            break
+    return res, res_lst

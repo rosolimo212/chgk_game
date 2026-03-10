@@ -40,3 +40,27 @@ with left3:
         st.rerun()
 with right3:
     st.metric("Result", st.session_state.results[2])
+
+
+# Row 4: Namy tries and difficulty
+left4, right4 = st.columns([2, 1])
+with left4:
+    difficulty4 = st.number_input(
+        "Difficulty (1-100)",
+        min_value=1,
+        max_value=100,
+        value=50,
+        key="difficulty4",
+    )
+    num_try = st.number_input(
+        "Number of tries",
+        min_value=1,
+        max_value=100,
+        value=3,
+        key="num_try",
+    )
+    if st.button("Make {num_try} tries with difficulty {difficulty}".format(num_try=num_try, difficulty=difficulty), key="make_qv"):
+        res, res_lst = cgb.make_qv(difficulty4, num_try)
+    with right3:
+        st.metric("Result", res)
+   
